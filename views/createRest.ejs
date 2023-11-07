@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delivery App</title>
+    <title>Add Restaurant</title>
     <style>
         body{
             font-family: Arial, Helvetica, sans-serif;
-            background-color:  #f8f2ed;
+            background-color: #f0f0f0;
             margin: 0;
             padding: 0;
             display: flex;
@@ -18,26 +18,16 @@
         }
 
         h1{
-            text-align: center;
+            font-size: 2.5em;
             color: #333;
+            margin-bottom: 10px;
         }
-
-        h2{
-            text-align: center;
-            color: #666;
-        }
-
-        h4{
-            text-align: center;
-            font-size: 1.5em;
-            margin: 20px 0;
-        }
-
+        
         form{
             background-color: #fff;
-            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
             width: 300px;
         }
 
@@ -71,25 +61,23 @@
         }
     </style>
 </head>
-<body>
 
-    <h1>Welcome to your Delivery App!</h1>
-    <h2> Please Sign Up to continue </h2>
-    <h4>Sign Up</h4>
-    <form method="POST" action="/login">
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" required>
-        <br>
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" required>
-        <br>
+<body>
+    <h1> Add Your Own Restaurant!</h1>
+    <form method="POST" action="/create-Restaurant">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="menu">Menu (comma-separated):</label>
+        <input type="text" id="menu" name="menu" required>
+
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" required>
+
         <label for="email">Email:</label>
         <input type="text" id="email" name="email" required>
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <br>
-        <button type="submit">Sign Up</button>
+
+        <button type="submit">Add Restaurant</button>
     </form>
 </body>
 <%- include('./partials/footer.ejs') %>

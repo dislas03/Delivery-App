@@ -1,10 +1,11 @@
 const express = require("express")
 const router = express.Router
-const {home, asian, indian, italian, mediterranean} = require("../controllers/restaurantController")
+const {home, asian, indian, italian, mediterranean,} = require("../controllers/restaurantController")
 const { twoSticks, papaThai, shanghaiWok, punjabiDhaba, tandooriBites, kaurCafe, osteriaMozza, chiSpacca, anticoNuovo, cafeSantorini, piccoloParadiso, joesFalafel } = require("../models/restaurantSeed")
 
 router.get("/home", home)
-router.get('/restHome', restHome)  
+router.get('/restHome', restHome) 
+router.get('/create-Restaurant', create-Restaurant) 
 router.get("/asian", asian)
 router.get("/indian", indian)
 router.get("/italian", italian)

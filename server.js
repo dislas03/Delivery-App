@@ -15,10 +15,10 @@ const PORT = 3000
 //Connecting ejs template to app
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
+app.use(express.static('public'))
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.json());
-app.use(express.static('public'))
 
 //Create a new user and make sure all input is validated
 app.post('/login', validateUserInput, createUser)
@@ -36,7 +36,17 @@ app.get('/users/:id', updateUser);
 app.delete('/users/:id', deleteUser);
 
 //Create a new restaurant
-app.post('/restaurants', validateUserInput, createRestaurant)
+app.post('/create-Restaurant', validateUserInput, createRestaurant, async (req, res) => {
+    try{
+        const { name, menu, phone, email } = req.body;
+
+        const savedRestaurant = await createRestaurant({ name, menu, phone, email })
+        res.redirect('/restHome');
+    } catch(error){
+        console.error(error)
+        res.status(500).send('Internal Server Error')
+    }
+})
 
 //Get all restaurants 
 app.get('/restaurant', getAllRestaurants)
@@ -57,7 +67,11 @@ app.get('/home', (req, res) => {
 
 app.get('/restHome', (req, res) => {
     res.render('restHome')
-}); 
+})
+
+app.get('/createRest.ejs', (req, res) => {
+    res.render('createRest')
+})
 
 app.get('/asian', (req, res) => {
     res.render('asian')
