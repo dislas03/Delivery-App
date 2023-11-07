@@ -6,22 +6,15 @@
     <title>Restaurant Details</title>
 </head>
 <body>
-    <h1> Restaurant Details</h1>
-    <p><strong>Name:</strong> <%= twoSticks.name %> </p>
-    <p><strong>Menu:</strong></p>
-    <ul>
-        <% if (twoSticks.menu) { %>
-            <% for (let i = 0; i < twoSticks.menu.length; i++) { %>
-                <li><%= twoSticks.menu[i] %></li>
-                <% } %>
-        <% } else { %>
-            <li> No menu items availabele</li>
-            <% } %>
-    </ul>
-    <p> Questions? Comments? Contact us down below!</p>
-    <p><strong>Phone:</strong> <%= twoSticks.phone %> </p>
-    <p><strong>Email:</strong> <%= twoSticks.email %> </p>
-    <a href="/"> Back to home </a>
+    <h1> Asian Cuisine</h1>
+    <h2> Please select a restaurant below!</h2>
+    <div>
+        <ul>
+            <li><a href="./twoSticks.ejs">Two Sticks</a></li>
+            <li><a href="./papaThai.ejs">Papa Thai</a></li>
+            <li><a href="./shanghaiWok.ejs">Shanghai Wok</a></li>
+        </ul>
+    </div>
 </body>
 <%- include('./partials/footer.ejs') %>
 </html>

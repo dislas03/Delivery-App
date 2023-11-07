@@ -50,7 +50,7 @@ async function run() {
         console.log(`${arrayOfUsers}`)
     }
 }
-run()
+run().catch(console.dir)
     .then(() => {
         mongoose.connection.close();
     }) .catch((error) => {

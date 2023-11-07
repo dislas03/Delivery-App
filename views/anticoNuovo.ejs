@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Details</title>
+    <link rel="stylesheet" type="text/css" href="../public/style.css">
+</head>
+<body>
+    <h1> Restaurant Details</h1>
+    <p><strong>Name:</strong> <%= anticoNuovo.name %> </p>
+    <p><strong>Menu:</strong></p>
+    <ul>
+        <% if (anticoNuovo.menu) { %>
+            <% for (let i = 0; i < anticoNuovo.menu.length; i++) { %>
+                <li><%= anticoNuovo.menu[i] %></li>
+                <% } %>
+        <% } else { %>
+            <li> No menu items availabele</li>
+            <% } %>
+    </ul>
+    <p> Questions? Comments? Contact us down below!</p>
+    <p><strong>Phone:</strong> <%= anticoNuovo.phone %> </p>
+    <p><strong>Email:</strong> <%= anticoNuovo.email %> </p>
+    <a href="/restHome"> Back to home </a>
+</body>
+<%- include('./partials/footer.ejs') %>
+</html>

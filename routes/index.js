@@ -1,11 +1,25 @@
-// const express = require("express")
-// const router = express.Router
-// const {home, asian, indian, italian, mediterranean} = require("../controllers/restaurantController")
+const express = require("express")
+const router = express.Router
+const {home, asian, indian, italian, mediterranean} = require("../controllers/restaurantController")
+const { twoSticks, papaThai, shanghaiWok, punjabiDhaba, tandooriBites, kaurCafe, osteriaMozza, chiSpacca, anticoNuovo, cafeSantorini, piccoloParadiso, joesFalafel } = require("../models/restaurantSeed")
 
-// router.get("/", home)
-// router.get("/asian", asian)
-// router.get("/indian", indian)
-// router.get("/italian", italian)
-// router.get("/mediterranean", mediterranean)
+router.get("/home", home)
+router.get('/restHome', restHome)  
+router.get("/asian", asian)
+router.get("/indian", indian)
+router.get("/italian", italian)
+router.get("/mediterranean", mediterranean)
+router.get('/asian/twoSticks', twoSticks)
+router.get('/asian/papThai', papaThai)
+router.get('/asian/shanghaiWok', shanghaiWok)
+router.get('/indian/punjabiDhaba', punjabiDhaba)
+router.get('/indian/tandooriBites', tandooriBites)
+router.get('/indian/kaurCafe', kaurCafe)
+router.get('/italian/osteriaMozza', osteriaMozza)
+router.get('/italian/chiSpacca', chiSpacca)
+router.get('/italian/anitcoNuovo', anticoNuovo)
+router.get('/mditerranean/cafeSantorini', cafeSantorini)
+router.get('/mediterranean/piccoloParadiso', piccoloParadiso)
+router.get('/mediterranean/joesFalafel', joesFalafel)
 
-// module.exports = router
+module.exports = router

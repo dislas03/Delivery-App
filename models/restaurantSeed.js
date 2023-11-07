@@ -1,12 +1,11 @@
 const mongoose = require('mongoose')
 const { Restaurant } = require('./restaurants.js');
-const { DB_URL } = require('../db/connection');
+const { DB_URL } = require('../db/connection.js');
 
 
 mongoose
-    .connect(DB_URL, {
-        useNewUrlParser: true, useUnifiedTopology: true 
-    }) .then (() => {
+    .connect(DB_URL)
+     .then (() => {
         console.log('mongo connected')
     }) .catch ((err) => {
         console.log(err);
@@ -31,13 +30,6 @@ const shanghaiWok = new Restaurant({
     menu: ["Xiao Long Bao", "Peking Duck", "Shanghai Fried Noodles"],
     phone: '3333333333',
     email: 'shanghaiwok@shanghaiwok.com'  
-});
-
-const ariSushi = new Restaurant({
-    name: 'Ari Sushi',
-    menu: ["Tako", "Temaki", "Ari's Dragon Roll"],
-    phone: '4444444444',
-    email: 'arisushi@arisushi.com'
 });
 
 const punjabiDhaba = new Restaurant({
@@ -106,7 +98,7 @@ const joesFalafel = new Restaurant({
 //inserts all of our restaurant into our database
 async function run() {
     try{
-        let arrayOfRest = [twoSticks, papaThai, shanghaiWok, ariSushi, punjabiDhaba, tandooriBites, kaurCafe, osteriaMozza, chiSpacca, anticoNuovo, cafeSantorini, piccoloParadiso, joesFalafel]
+        let arrayOfRest = [twoSticks, papaThai, shanghaiWok, punjabiDhaba, tandooriBites, kaurCafe, osteriaMozza, chiSpacca, anticoNuovo, cafeSantorini, piccoloParadiso, joesFalafel]
         
         const result = await Restaurant.insertMany(arrayOfRest)
         console.log(`${result.insertedCount} documents were inserted`)
@@ -114,6 +106,11 @@ async function run() {
         console.log(`${arrayOfRest}`)
     }
 }
-// run().catch(console.dir)
+// // run().catch(console.dir)
+// .then(() => {
+//     mongoose.connection.close();
+// }) .catch((error) => {
+//     console.error(error)
+// })
 
-module.exports = { twoSticks, papaThai, shanghaiWok, ariSushi, punjabiDhaba, tandooriBites, kaurCafe, osteriaMozza, chiSpacca, anticoNuovo, cafeSantorini, piccoloParadiso, joesFalafel }
+module.exports = { twoSticks, papaThai, shanghaiWok, punjabiDhaba, tandooriBites, kaurCafe, osteriaMozza, chiSpacca, anticoNuovo, cafeSantorini, piccoloParadiso, joesFalafel }

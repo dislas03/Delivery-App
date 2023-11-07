@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Details</title>
+    <link rel="stylesheet" type="text/css" href="../public/style.css">
+</head>
+<body>
+    <h1> Restaurant Details</h1>
+    <p><strong>Name:</strong> <%= piccoloParadiso.name %> </p>
+    <p><strong>Menu:</strong></p>
+    <ul>
+        <% if (piccoloParadiso.menu) { %>
+            <% for (let i = 0; i < piccoloParadiso.menu.length; i++) { %>
+                <li><%= piccoloParadiso.menu[i] %></li>
+                <% } %>
+        <% } else { %>
+            <li> No menu items availabele</li>
+            <% } %>
+    </ul>
+    <p> Questions? Comments? Contact us down below!</p>
+    <p><strong>Phone:</strong> <%= piccoloParadiso.phone %> </p>
+    <p><strong>Email:</strong> <%= piccoloParadiso.email %> </p>
+    <a href="/restHome"> Back to home </a>
+</body>
+<%- include('./partials/footer.ejs') %>
+</html>
